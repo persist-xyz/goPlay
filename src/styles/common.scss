@@ -1,0 +1,37 @@
+// 不支持后代选择器 且子元素选择器支持度不友好
+// 具体见 https://nervjs.github.io/taro/docs/component-style.html
+
+@import "@/styles/mixins.scss";
+
+page {
+  height: 100%;
+}
+
+view,
+text,
+scroll-view {
+  box-sizing: border-box;
+}
+
+// button  ----start
+
+button {
+  font-size: 30px;
+  border: none;
+
+  // weapp中 after 默认会有边框
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+// button  ----end
+
+.placeholderColor {
+  color: #b2b2b2;
+}

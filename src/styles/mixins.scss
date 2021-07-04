@@ -1,0 +1,63 @@
+@mixin lamp-clamp($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+@mixin arrow-up($size: 14px, $color: #999) {
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  display: inline-block;
+  border: 1px solid $color;
+  border-top: 0 none !important;
+  border-left: 0 none !important;
+  transform: rotate(-135deg);
+  transform-origin: 50% 50%;
+  margin-left: 10px;
+  margin-bottom: 0;
+  margin-top: 6px;
+}
+
+@mixin arrow-down($size: 14px, $color: #999) {
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid $color;
+  border-top: 0 none !important;
+  border-left: 0 none !important;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  margin-left: 10px;
+  margin-bottom: 6px;
+  margin-top: 0;
+}
+
+@mixin arrow-left($size: 14px, $color: #999) {
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid $color;
+  border-top: 0 none !important;
+  border-right: 0 none !important;
+  transform: rotate(45deg);
+  margin-left: 10px;
+}
+
+@mixin arrow-right($size: 14px, $color: #999) {
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid $color;
+  border-top: 0 none !important;
+  border-left: 0 none !important;
+  transform: rotate(-45deg);
+  margin-left: 10px;
+  margin-bottom: 2px;
+}
