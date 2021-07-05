@@ -1,0 +1,24 @@
+.back-wrap {
+  width: 100%;
+  height: 64px;
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 99;
+  .back-icon {
+    @include arrow-left(24px, #000);
+  }
+  .home-button {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+  }
+  .back-title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 64px;
+  }
+}
