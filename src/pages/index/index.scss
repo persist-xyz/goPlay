@@ -1,5 +1,30 @@
 .index {
   width: 100%;
-  height: 100%;
+  height:calc(100% - 160rpx);
   background-color: #f7f8fb;
+
+  .index-header .tab-list {
+background-color: #fff;
+    .list-item {
+      line-height: 80px;
+      padding: 0 10px;
+      text-align: center;
+      white-space: nowrap;
+      position: relative;
+      color: #8E8E8E;
+
+      .tab-text{
+
+        &:first-child{
+          margin-right: 20rpx;
+        }
+      }
+
+      .text-active {
+        font-weight: bold;
+        color: #030303;
+      }
+
+    }
+  }
 }

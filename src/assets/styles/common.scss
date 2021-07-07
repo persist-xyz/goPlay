@@ -1,7 +1,7 @@
 // 不支持后代选择器 且子元素选择器支持度不友好
 // 具体见 https://nervjs.github.io/taro/docs/component-style.html
 
-@import "@/assets/styles/mixins.scss";
+@import "./mixins.scss";
 
 page {
   height: 100%;
@@ -11,6 +11,9 @@ view,
 text,
 scroll-view {
   box-sizing: border-box;
+}
+image {
+  display: block;
 }
 
 // button  ----start
@@ -32,6 +35,50 @@ button {
 
 // button  ----end
 
+
+.flex {
+  display: flex;
+}
+
+.flex-left-center {
+  display: flex;
+  align-items: center;
+}
+.flex-left-start {
+  display: flex;
+  align-items: start;
+}
+
+.flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.f-w {
+  flex-wrap: wrap;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .placeholderColor {
   color: #b2b2b2;
+}
+
+.border-radius{
+  border-radius: 16rpx;
+  background-color: #fff;
+  margin: 40rpx 20rpx 0;
 }

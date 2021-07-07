@@ -14,20 +14,20 @@ export default {
     list: [
       {
         pagePath: "pages/index/index",
-        iconPath: `assets/img/index-icon.png`,
-        selectedIconPath: `assets/img/index-icon-on.png`,
+        iconPath: `assets/img/tab-icon1.png`,
+        selectedIconPath: `assets/img/tab-icon1-on.png`,
         text: "首页",
       },
       {
         pagePath: "pages/publish/index",
-        iconPath: `assets/img/index-icon.png`,
-        selectedIconPath: `assets/img/index-icon-on.png`,
+        iconPath: `assets/img/tab-icon2.png`,
+        selectedIconPath: `assets/img/tab-icon2.png`,
         text: "发布",
       },
       {
         pagePath: "pages/my/index",
-        iconPath: `assets/img/mine-icon.png`,
-        selectedIconPath: `assets/img/mine-icon-on.png`,
+        iconPath: `assets/img/tab-icon3.png`,
+        selectedIconPath: `assets/img/tab-icon3-on.png`,
         text: "我的",
       },
     ],

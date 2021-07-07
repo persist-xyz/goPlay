@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 120rpx;
+  height: 160rpx;
   background: white;
   display: flex;
   padding-bottom: content(safe-area-inset-bottom);
@@ -31,20 +31,21 @@
 }
 
 .tab-bar-item image {
-  width: 56rpx;
-  height: 56rpx;
+  width: 54rpx;
+  height: 54rpx;
 }
 
 .publish-bar image {
   position: absolute;
   top: -25rpx;
-  width: 90rpx;
-  height: 90rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
 .publish-bar view {
-  margin-top: 40rpx;
+  margin-top: 60rpx!important;
 }
 
 .tab-bar-item view {
-  font-size: 28rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
 }
