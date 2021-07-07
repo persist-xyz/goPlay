@@ -1,33 +1,36 @@
 export default {
   pages: [
     "pages/index/index",
-    "pages/my/my",
-    "pages/webview/webview"
+    "pages/my/index",
+    "pages/publish/index",
+    "pages/webview/webview",
   ],
   tabBar: {
-    color: "#000000",
-    selectedColor: "#000000",
+    custom: true,
     backgroundColor: "#fff",
+    borderStyle: "black",
+    selectedColor: "#000",
+    color: "#000",
     list: [
       {
         pagePath: "pages/index/index",
         iconPath: `assets/img/index-icon.png`,
         selectedIconPath: `assets/img/index-icon-on.png`,
-        text: "首页"
+        text: "首页",
       },
       {
-        pagePath: "pages/my/my",
+        pagePath: "pages/publish/index",
         iconPath: `assets/img/index-icon.png`,
         selectedIconPath: `assets/img/index-icon-on.png`,
-        text: "发布"
+        text: "发布",
       },
       {
-        pagePath: "pages/my/my",
+        pagePath: "pages/my/index",
         iconPath: `assets/img/mine-icon.png`,
         selectedIconPath: `assets/img/mine-icon-on.png`,
-        text: "我的"
+        text: "我的",
       },
-    ]
+    ],
   },
   window: {
     backgroundTextStyle: "light",

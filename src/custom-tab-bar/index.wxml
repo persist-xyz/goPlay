@@ -1,0 +1,10 @@
+<!-- miniprogram/custom-tab-bar/index.wxml -->
+<view class="tab-bar">
+  <!-- <view class="tab-bar-border"></view> -->
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item {{index===1? 'publish-bar':''}}" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <image src="{{tabIndex === index ? item.selectedIconPath : item.iconPath}}" />
+    <view style="color: {{tabIndex === index ? selectedColor : color}}; margin-left:{{ tab1Changed && index === 0 ? '4px' : '0' }}">
+      {{item.text}}
+    </view>
+  </view>
+</view>

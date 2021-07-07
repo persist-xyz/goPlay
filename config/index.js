@@ -15,7 +15,12 @@ const config = {
   plugins: [],
   defineConstants: {},
   copy: {
-    patterns: [],
+    patterns: [
+      {
+        from: "src/custom-tab-bar/",
+        to: `dist/custom-tab-bar/`,
+      },
+    ],
     options: {},
   },
   framework: "react",
@@ -32,6 +37,10 @@ const config = {
     "@/store": resolve(`../src/store`),
   },
   mini: {
+    compile: {
+      include: [resolve("node_modules/@mini/")],
+      exclude: [resolve("src/custom-tab-bar")],
+    },
     postcss: {
       pxtransform: {
         enable: true,
