@@ -3,6 +3,7 @@ export default {
     "pages/index/index",
     "pages/my/index",
     "pages/publish/index",
+    "pages/createPublish/index",
     "pages/webview/webview",
   ],
   tabBar: {

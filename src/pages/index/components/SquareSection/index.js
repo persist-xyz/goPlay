@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, Swiper, SwiperItem, Image, Text } from "@tarojs/components";
 import FilterDropDown from "@/components/FilterDropDown";
-import Card from "../Card";
-import data from "@/constants/data"; //筛选菜单数据
+import SquareCard from "../SquareCard";
+import data from "./data"; //筛选菜单数据
 import img from "@/assets/img/index-best.png";
 import "./index.scss";
 
@@ -26,13 +26,8 @@ const SquareSection = ({}) => {
   ]);
 
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
-  const [swiperIndex, setSwiperIndex] = useState(0);
   const [filterData] = useState(data);
   const [defaultSelected] = useState([]);
-
-  const swiperChange = (e) => {
-    setSwiperIndex(e.detail.current);
-  };
 
   //接收菜单结果
   const confirm = (e) => {
@@ -45,7 +40,6 @@ const SquareSection = ({}) => {
         {tabLists2.map((item, index) => (
           <View
             className="list-item"
-            id={`list-item${index}`}
             onClick={() => {
               setCurrentTabIndex(index);
             }}
@@ -71,7 +65,6 @@ const SquareSection = ({}) => {
         indicatorDots={banners.length > 1}
         indicatorActiveColor="#fff"
         indicatorColor="rgba(255, 255, 255, 0.6)"
-        onChange={swiperChange}
       >
         {banners.map((item) => (
           <SwiperItem>
@@ -102,7 +95,7 @@ const SquareSection = ({}) => {
         />
       </View>
 
-      <Card />
+      <SquareCard />
     </View>
   );
 };

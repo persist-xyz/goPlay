@@ -1,2 +1,15 @@
-.circle-section {
+.circleSection {
+
+  &-top{
+    margin:20rpx;
+    image{
+      width: 345rpx;
+      height: 190rpx;
+    }
+  }
+
+  &-filter{
+    height: 88rpx;
+    position: relative;
+  }
 }

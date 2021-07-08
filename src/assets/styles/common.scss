@@ -12,8 +12,11 @@ text,
 scroll-view {
   box-sizing: border-box;
 }
-image {
+image,input {
   display: block;
+}
+input {
+  width: 100%;
 }
 
 // button  ----start
@@ -61,6 +64,12 @@ button {
   align-items: center;
 }
 
+.flex-between-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .flex1 {
   flex: 1;
 }
@@ -75,10 +84,45 @@ button {
 
 .placeholderColor {
   color: #b2b2b2;
+  font-size: 28rpx;
 }
 
 .border-radius{
   border-radius: 16rpx;
   background-color: #fff;
   margin: 40rpx 20rpx 0;
+}
+
+.default-btn{
+  background: #fff;
+  border-radius: 45rpx;
+  color: #4C4948;
+  font-size: 32rpx;
+  padding: 20rpx 30rpx;
+}
+
+.active-btn{
+  background: linear-gradient(right, #FE5F0B, #FCAD67);
+  border-radius: 45rpx;
+  box-shadow: 0 10rpx 18rpx rgba(250, 100, 0, 0.32);
+  color: #fff;
+  font-size: 32rpx;
+  padding: 20rpx 30rpx;
+}
+
+.default-btn2{
+  background: #fff;
+  border-radius: 45rpx;
+  color: #A5A5A5;
+  font-size: 24rpx;
+  padding: 14rpx 30rpx;
+}
+
+.active-btn2{
+  background: #fff;
+  border-radius: 45rpx;
+  color: #FA6400;
+  font-size: 24rpx;
+  padding: 14rpx 30rpx;
+  border: 1px solid #FA6400;
 }

@@ -1,26 +1,8 @@
-.card {
+.circleCard {
   position: relative;
   background-color: #fff;
   margin: 20rpx;
   padding: 20rpx 30rpx;
-
-  &-top {
-    &__avatar {
-      width: 64rpx;
-      height: 64rpx;
-      margin-right: 28rpx;
-    }
-    text {
-      color: #3e3e3e;
-      font-size: 26rpx;
-    }
-
-    &__text2 {
-      display: block;
-      font-weight: 500;
-      margin-left: 20rpx;
-    }
-  }
 
   &-center {
     margin-top: 10px;
@@ -36,19 +18,25 @@
       font-size: 32rpx;
       margin-bottom: 10rpx;
     }
-
+    &__subtitle {
+      color: #6E6E6E;
+      font-size: 22rpx;
+      margin-bottom: 10rpx;
+    }
     &__yellowbg {
       color: #fe6513;
       font-size: 18rpx;
       border-radius: 20rpx;
-      width: 130rpx;
+      width: auto!important;
+      display: inline-block;
       padding: 6rpx 15rpx;
       background: linear-gradient(right, #fff, #ffd8b7);
+      margin-right: 6rpx;
     }
 
     &__notes {
       color: #4c4948;
-      font-size: 20rpx;
+      font-size: 22rpx;
       margin-top: 10rpx;
     }
     &__icon {
@@ -64,28 +52,11 @@
       height: 1px;
       margin-top: 30rpx;
     }
-
-    &__nums {
-      color: #4c4948;
-      font-size: 20rpx;
-      margin-top: 20rpx;
-      margin-bottom: 10rpx;
-    }
-
-    &__headers {
-      image {
-        width: 68rpx;
-        height: 68rpx;
-        margin-right: 24rpx;
+    
+      &__card-btn {
+        right: 10rpx;
+        width: 140rpx;
+        height: 100rpx;
       }
-    }
-  }
-
-  &-btn {
-    position: absolute;
-    top: 0;
-    right: 10rpx;
-    width: 140rpx;
-    height: 100rpx;
   }
 }

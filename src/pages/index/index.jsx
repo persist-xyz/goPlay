@@ -36,9 +36,7 @@ const Index = () => {
         {tabLists.map((item, index) => (
           <View
             className="list-item"
-            id={`list-item${index}`}
             onClick={() => {
-              console.log(index);
               setCurrentTabIndex(index);
             }}
             key={item.id}
@@ -58,15 +56,12 @@ const Index = () => {
   };
 
   return (
-    <ScrollView className="index">
+    <ScrollView className="index" scrollY scrollWithAnimation>
       <View className="index-header">
         <IndexTab />
       </View>
 
-      {currentTabIndex === 0 && <SquareSection />}
-      {currentTabIndex === 1 && <CircleSection />}
-
-      {/* <CategoryList /> */}
+      {currentTabIndex === 0 ? <SquareSection />: <CircleSection />} 
     </ScrollView>
   );
 };
