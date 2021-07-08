@@ -1,29 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import Taro, { getCurrentInstance } from "@tarojs/taro";
-import {
-  View,
-  Swiper,
-  SwiperItem,
-  ScrollView,
-  Text,
-} from "@tarojs/components";
+import { View, Swiper, SwiperItem, ScrollView, Text } from "@tarojs/components";
 import "./index.scss";
 
-const CategoryList = ({ navBarHeight=80  }) => {
+const CategoryList = ({ navBarHeight = 80 }) => {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
   const [allData, setAllData] = useState([
-    { canLoadMore: true, orderType: 1, readType: 0 }
+    { canLoadMore: true, orderType: 1, readType: 0 },
   ]);
-  const [showLists, setShowLists] = useState([[1,2]]);
+  const [showLists, setShowLists] = useState([[1, 2]]);
   const [swiperContScroll, setSwiperContScroll] = useState(false);
 
   // tab切换
-  const changeTab = index => {
+  const changeTab = (index) => {
     setCurrentTabIndex(index);
   };
-  
+
   // 滑动切换swiper
-  const swiperChange = e => {
+  const swiperChange = (e) => {
     const { source, current } = e.detail;
     if (source === "touch") {
       changeTab(current);
@@ -40,7 +34,7 @@ const CategoryList = ({ navBarHeight=80  }) => {
     let observer = Taro.createIntersectionObserver(getCurrentInstance().page);
     observer
       .relativeToViewport({ top: -navBarHeight, bottom: -100 })
-      .observe(".hot-ranking", res => {
+      .observe(".hot-ranking", (res) => {
         if (res.intersectionRatio === 0) {
           setSwiperContScroll(false);
         } else {
@@ -48,11 +42,11 @@ const CategoryList = ({ navBarHeight=80  }) => {
         }
       });
   }, []);
-  
+
   return (
     <View class="category-list">
       <View className="tab-filter" style={{ top: navBarHeight + "px" }}>
-      11
+        11
       </View>
 
       <Swiper
@@ -61,7 +55,7 @@ const CategoryList = ({ navBarHeight=80  }) => {
         current={currentTabIndex}
         circular
       >
-        {showLists.map(item2 => (
+        {showLists.map((item2) => (
           <SwiperItem>
             <ScrollView
               className="data-list"
@@ -70,7 +64,7 @@ const CategoryList = ({ navBarHeight=80  }) => {
               showScrollbar={false}
             >
               <Text>{item2}</Text>
-              </ScrollView>
+            </ScrollView>
           </SwiperItem>
         ))}
       </Swiper>
@@ -78,4 +72,4 @@ const CategoryList = ({ navBarHeight=80  }) => {
   );
 };
 
-export default CategoryList
+export default CategoryList;

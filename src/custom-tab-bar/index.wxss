@@ -42,7 +42,7 @@
   height: 120rpx;
 }
 .publish-bar view {
-  margin-top: 60rpx!important;
+  margin-top: 60rpx !important;
 }
 
 .tab-bar-item view {
