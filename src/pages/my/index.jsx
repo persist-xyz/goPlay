@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "@tarojs/components";
-import { useDidShow, getCurrentInstance } from "@tarojs/taro";
+import Taro, { useDidShow, getCurrentInstance } from "@tarojs/taro";
 import defaultAvatar from "@/assets/img/default-avatar.png";
 import male from "@/assets/img/male.png";
 import female from "@/assets/img/female.png";
@@ -22,6 +22,17 @@ const My = () => {
     }
   });
 
+  const toMyPublishAct = () => {
+    Taro.navigateTo({
+      url: `/pages/myPublishAct/index`,
+    });
+  };
+  const toMyJoinAct = () => {
+    Taro.navigateTo({
+      url: `/pages/myJoinAct/index`,
+    });
+  };
+
   return (
     <View className="my">
       <View className="my-top">
@@ -34,11 +45,17 @@ const My = () => {
       </View>
 
       <View className="my-list border-radius">
-        <View className="flex flex-left-center flex-between-center">
+        <View
+          className="flex flex-left-center flex-between-center"
+          onClick={toMyPublishAct}
+        >
           <Text>我发布的活动</Text>
           <Image className="" src={arrow} />
         </View>
-        <View className="flex flex-left-center flex-between-center">
+        <View
+          className="flex flex-left-center flex-between-center"
+          onClick={toMyJoinAct}
+        >
           <Text>我参与的活动</Text>
           <Image className="" src={arrow} />
         </View>

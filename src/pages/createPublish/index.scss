@@ -23,6 +23,14 @@
       }
     }
 
+    .textarea {
+      width: 100%;
+      height: 120rpx;
+      border-radius: 22rpx;
+      background-color: #fff;
+      padding: 20rpx;
+    }
+
     &__add {
       padding: 30rpx 20rpx 20rpx 0;
     }
@@ -45,5 +53,56 @@
     width: 345rpx;
     height: 110rpx;
     margin-top: 60rpx;
+  }
+  .getphone-btn {
+    width: 100rpx;
+    color: #fa6400;
+    background-color: #fff;
+    border-radius: 45rpx;
+    font-size: 24rpx;
+    padding: 0;
+  }
+
+  .choose {
+    .nav {
+      background: #fff;
+      border-radius: 45rpx;
+      color: #a5a5a5;
+      font-size: 24rpx;
+      padding: 0rpx 30rpx;
+      height: 70rpx;
+    }
+    .HMfilterDropdown {
+      height: auto;
+    }
+  }
+  .active_choose {
+    .nav {
+      border: 1px solid #fa6400;
+    }
+  }
+
+  .picker-time {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .mask2 {
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .index {
+      background: #fff;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
   }
 }

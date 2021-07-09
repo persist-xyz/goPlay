@@ -4,6 +4,8 @@ export default {
     "pages/my/index",
     "pages/publish/index",
     "pages/createPublish/index",
+    "pages/myJoinAct/index",
+    "pages/myPublishAct/index",
     "pages/webview/webview",
   ],
   tabBar: {
