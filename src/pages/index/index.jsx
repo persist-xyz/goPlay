@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ScrollView } from "@tarojs/components";
-import { useDidShow, getCurrentInstance } from "@tarojs/taro";
+import Taro, { useDidShow, getCurrentInstance } from "@tarojs/taro";
 import SquareSection from "./components/SquareSection";
 import CircleSection from "./components/CircleSection";
 import "./index.scss";
+import { authorizeLogin } from "@/api/user";
 
 const Index = () => {
   const [tabLists] = useState([
@@ -29,6 +30,14 @@ const Index = () => {
       });
     }
   });
+
+  const getUserInfo = async () => {
+    let e = await Taro.getUserProfile({ desc: "获取用户信息", lang: "zh_CN" });
+    if (e.errMsg !== "getUserProfile:ok") return;
+    let loginRes = await Taro.login();
+    console.log(e, loginRes, "---");
+    // await authorizeLogin({});
+  };
 
   const IndexTab = () => {
     return (

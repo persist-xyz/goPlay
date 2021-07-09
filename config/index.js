@@ -27,6 +27,7 @@ const config = {
   alias: {
     "@/utils": resolve(`../src/utils`),
     "@/plugins": resolve(`../src/plugins`),
+    "@/api": resolve(`../src/api`),
     "@/styles": resolve(`../src/styles`),
     "@/service": resolve(`../src/service`),
     "@/components": resolve(`../src/components`),

@@ -10,7 +10,7 @@ const CreatePublish = () => {
   const Title = ({ text, subTitle }) => {
     return (
       <Text className="createPublish-section__title">
-        {text} <Text>{subTitle}</Text>{" "}
+        {text} <Text>{subTitle}</Text>
       </Text>
     );
   };
