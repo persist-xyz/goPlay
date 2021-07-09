@@ -8,7 +8,7 @@ import bestImg from "@/assets/img/index-best.png";
 import createImg from "@/assets/img/index-create.png";
 import "./index.scss";
 
-const CircleSection = ({ }) => {
+const CircleSection = ({}) => {
   const [filterData] = useState(data);
   const [defaultSelected] = useState([]);
 
@@ -16,13 +16,14 @@ const CircleSection = ({ }) => {
     console.log(e);
   };
 
-  return <View class="circleSection">
-    <View class="circleSection-top flex-between-center">
-      <Image src={bestImg}  />
-      <Image src={createImg}  />
-    </View>
+  return (
+    <View class="circleSection">
+      <View class="circleSection-top flex-between-center">
+        <Image src={bestImg} />
+        <Image src={createImg} />
+      </View>
 
-    <View className="circleSection-filter">
+      <View className="circleSection-filter">
         <FilterDropDown
           filterData={filterData}
           defaultSelected={defaultSelected}
@@ -30,10 +31,11 @@ const CircleSection = ({ }) => {
           confirm={confirm}
           dataFormat="Object"
         />
+      </View>
+
+      <CircleCard />
     </View>
-    
-    <CircleCard />
-  </View>;
+  );
 };
 
 export default CircleSection;

@@ -1,33 +1,33 @@
 .createPublish {
   width: 100%;
-  background-color: #F7F8FB;
+  background-color: #f7f8fb;
   padding-bottom: 100rpx;
-  
-  &-top{
+
+  &-top {
     width: 100%;
     height: 560rpx;
   }
 
-  &-section{
+  &-section {
     padding: 40rpx 40rpx 0 40rpx;
 
-    &__title{
-    color: #030303;
-    font-size: 34rpx;
-    font-weight: bold;
-    margin-top: 20rpx;
+    &__title {
+      color: #030303;
+      font-size: 34rpx;
+      font-weight: bold;
+      margin-top: 20rpx;
 
-    text{
-      color: #A5A5A5;
-      font-size: 28rpx;
-    }
+      text {
+        color: #a5a5a5;
+        font-size: 28rpx;
+      }
     }
 
-    &__add{
+    &__add {
       padding: 30rpx 20rpx 20rpx 0;
     }
-    .line{
-      border-bottom: 1px solid #EAEAEA;
+    .line {
+      border-bottom: 1px solid #eaeaea;
     }
     .btn {
       margin-right: 20rpx;
@@ -35,13 +35,13 @@
       margin-bottom: 10rpx;
     }
 
-    .arrow{
+    .arrow {
       width: 18rpx;
       height: 30rpx;
     }
   }
 
-  &-createBtn{
+  &-createBtn {
     width: 345rpx;
     height: 110rpx;
     margin-top: 60rpx;

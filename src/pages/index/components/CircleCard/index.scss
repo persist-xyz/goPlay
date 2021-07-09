@@ -19,7 +19,7 @@
       margin-bottom: 10rpx;
     }
     &__subtitle {
-      color: #6E6E6E;
+      color: #6e6e6e;
       font-size: 22rpx;
       margin-bottom: 10rpx;
     }
@@ -27,7 +27,7 @@
       color: #fe6513;
       font-size: 18rpx;
       border-radius: 20rpx;
-      width: auto!important;
+      width: auto !important;
       display: inline-block;
       padding: 6rpx 15rpx;
       background: linear-gradient(right, #fff, #ffd8b7);
@@ -52,11 +52,11 @@
       height: 1px;
       margin-top: 30rpx;
     }
-    
-      &__card-btn {
-        right: 10rpx;
-        width: 140rpx;
-        height: 100rpx;
-      }
+
+    &__card-btn {
+      right: 10rpx;
+      width: 140rpx;
+      height: 100rpx;
+    }
   }
 }

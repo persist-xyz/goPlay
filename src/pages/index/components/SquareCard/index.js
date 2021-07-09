@@ -26,7 +26,9 @@ const SquareCard = () => {
         <Image className="squareCard-center__cover" src={skeletonimg}></Image>
 
         <View className="flex-column ">
-          <Text className="squareCard-center__title">减肥塑形21天蜕变训练营</Text>
+          <Text className="squareCard-center__title">
+            减肥塑形21天蜕变训练营
+          </Text>
           <Text className="squareCard-center__yellowbg">黄豆健身社</Text>
           <View className="squareCard-center__notes flex-left-center">
             <Image

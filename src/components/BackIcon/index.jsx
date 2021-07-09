@@ -10,12 +10,12 @@ const BackIcon = ({
   color = "#000",
   title = "",
   isBack = true,
-  onBackError
+  onBackError,
 }) => {
   const lay = Taro.getMenuButtonBoundingClientRect();
   style = `top:${lay.top}px;`;
   const pageBack = () => {
-    Taro.navigateBack().catch(err => {
+    Taro.navigateBack().catch((err) => {
       onBackError && onBackError();
     });
   };

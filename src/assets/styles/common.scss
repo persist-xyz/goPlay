@@ -12,7 +12,8 @@ text,
 scroll-view {
   box-sizing: border-box;
 }
-image,input {
+image,
+input {
   display: block;
 }
 input {
@@ -37,7 +38,6 @@ button {
 }
 
 // button  ----end
-
 
 .flex {
   display: flex;
@@ -87,22 +87,22 @@ button {
   font-size: 28rpx;
 }
 
-.border-radius{
+.border-radius {
   border-radius: 16rpx;
   background-color: #fff;
   margin: 40rpx 20rpx 0;
 }
 
-.default-btn{
+.default-btn {
   background: #fff;
   border-radius: 45rpx;
-  color: #4C4948;
+  color: #4c4948;
   font-size: 32rpx;
   padding: 20rpx 30rpx;
 }
 
-.active-btn{
-  background: linear-gradient(right, #FE5F0B, #FCAD67);
+.active-btn {
+  background: linear-gradient(right, #fe5f0b, #fcad67);
   border-radius: 45rpx;
   box-shadow: 0 10rpx 18rpx rgba(250, 100, 0, 0.32);
   color: #fff;
@@ -110,19 +110,19 @@ button {
   padding: 20rpx 30rpx;
 }
 
-.default-btn2{
+.default-btn2 {
   background: #fff;
   border-radius: 45rpx;
-  color: #A5A5A5;
+  color: #a5a5a5;
   font-size: 24rpx;
   padding: 14rpx 30rpx;
 }
 
-.active-btn2{
+.active-btn2 {
   background: #fff;
   border-radius: 45rpx;
-  color: #FA6400;
+  color: #fa6400;
   font-size: 24rpx;
   padding: 14rpx 30rpx;
-  border: 1px solid #FA6400;
+  border: 1px solid #fa6400;
 }

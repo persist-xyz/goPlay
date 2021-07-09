@@ -61,7 +61,7 @@ const Index = () => {
         <IndexTab />
       </View>
 
-      {currentTabIndex === 0 ? <SquareSection />: <CircleSection />} 
+      {currentTabIndex === 0 ? <SquareSection /> : <CircleSection />}
     </ScrollView>
   );
 };

@@ -15,11 +15,15 @@ const CircleCard = () => {
 
         <View className="flex-column">
           <View className="">
-          <Text className="circleCard-center__yellowbg">宠物圈</Text>
-          <Text className="circleCard-center__title">减肥塑形21天蜕变训练营</Text>
+            <Text className="circleCard-center__yellowbg">宠物圈</Text>
+            <Text className="circleCard-center__title">
+              减肥塑形21天蜕变训练营
+            </Text>
           </View>
-          
-          <Text className="circleCard-center__subtitle">进群都必须是爱猫人士，喜欢狗的不准进群</Text>
+
+          <Text className="circleCard-center__subtitle">
+            进群都必须是爱猫人士，喜欢狗的不准进群
+          </Text>
 
           <View className="circleCard-center__notes flex-left-center">
             <Image
@@ -50,7 +54,6 @@ const CircleCard = () => {
           <Image src={joinBtn} className="circleCard-bottom__card-btn" />
         </View>
       </View>
-
     </View>
   );
 };
