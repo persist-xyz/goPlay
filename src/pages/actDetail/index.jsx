@@ -38,7 +38,7 @@ const ActDetail = () => {
     <View className="actDetail">
       <View className="actDetail-top">
         <Image
-          src={ALLACT_TYPES[data?.activityType + 1]?.img || topImg}
+          src={ALLACT_TYPES[data?.activityType - 1]?.img || topImg}
           className="actDetail-top__bg"
           mode="aspectFill"
         />

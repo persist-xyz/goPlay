@@ -51,7 +51,7 @@ const CreatePublish = () => {
   ];
 
   useEffect(() => {
-    console.log(ALLACT_TYPES[actType]);
+    console.log(ALLACT_TYPES[actType - 1]);
   }, []);
 
   const selectTime = () => {
@@ -128,7 +128,7 @@ const CreatePublish = () => {
   return (
     <View className="createPublish">
       <Image
-        src={ALLACT_TYPES[actType + 1]?.img || topImg}
+        src={ALLACT_TYPES[actType - 1]?.img || topImg}
         className="createPublish-top"
         mode="aspectFill"
       />
