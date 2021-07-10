@@ -8,7 +8,7 @@ import { joinActivity } from "@/api/post";
 import banner1 from "@/assets/img/banner1.png";
 import "./index.scss";
 
-const SquareSection = ({ list }) => {
+const SquareSection = ({ list, onReload }) => {
   const [tabLists2] = useState(["所有活动", "圈子活动"]);
   const [banners] = useState([banner1, banner1]);
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
@@ -29,6 +29,7 @@ const SquareSection = ({ list }) => {
   const handleJoinAct = async (item) => {
     const res = await joinActivity({ postId: item.id });
     console.log(item, res, "--join");
+    onReload();
   };
 
   const IndexTypeTab = () => {

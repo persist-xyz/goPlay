@@ -118,7 +118,7 @@ const SquareCard = ({ data, onClick, onJoin }) => {
         </View>
       </View>
 
-      {(!data.joinGroupFlag || data.myFlag) && (
+      {(data.joinGroupFlag || data.myFlag) && (
         <Image
           src={joinBtn}
           className="squareCard-btn"

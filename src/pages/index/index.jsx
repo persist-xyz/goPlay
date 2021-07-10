@@ -51,6 +51,14 @@ const Index = () => {
     setActList(res.data.data?.posts || []);
   };
 
+  const handleReload = () => {
+    Taro.showToast({
+      title: "已加入",
+      icon: "none",
+    });
+    getAllActivity();
+  };
+
   const getAllCircle = async () => {
     const res = await getAllGroups({
       pageNum: 1,
@@ -101,7 +109,7 @@ const Index = () => {
       </View>
 
       {currentTabIndex === 0 ? (
-        <SquareSection list={actList} />
+        <SquareSection list={actList} onReload={handleReload} />
       ) : (
         <CircleSection list={circleList} />
       )}
