@@ -116,7 +116,7 @@ const ActDetail = () => {
         </View>
       </View>
 
-      <View
+      {/* <View
         className="flex-center-center"
         onClick={() => {
           Taro.navigateTo({
@@ -134,7 +134,7 @@ const ActDetail = () => {
           }
           className="actDetail-btn"
         />
-      </View>
+      </View> */}
     </View>
   );
 };

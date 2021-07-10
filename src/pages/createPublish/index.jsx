@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Taro, { useRouter } from "@tarojs/taro";
 import { View, Text, Image, Input, Textarea, Button } from "@tarojs/components";
 import dayjs from "dayjs";
-import topImg from "@/assets/img/default-cover.png";
 import arrow from "@/assets/img/right-arrow.png";
 import createBtn from "@/assets/img/create-btn.png";
 import FilterDropDown from "@/components/FilterDropDown";
 import Picker from "@/components/Picker";
 import {
   ALLGROUPS,
+  ALLACT_TYPES,
   meetingPlaces,
   vsTypes,
   sexs,
@@ -18,9 +18,12 @@ import { createActivity } from "@/api/post";
 
 import "./index.scss";
 
+const topImg =
+  "https://cdn-ali-images-test.dushu365.com/16259190727ad8afa851172ec20c8e88fb520d746blc105n";
+
 const CreatePublish = () => {
   const router = useRouter();
-  const actType = router.params.type;
+  const actType = Number(router.params.type);
   const [placeIndex, setPlaceIndex] = useState(0);
   const [sexIndex, setSexIndex] = useState(0);
   const [vsIndex, setVsIndex] = useState(0);
@@ -30,7 +33,9 @@ const CreatePublish = () => {
 
   const [title, setTitle] = useState("");
   const [time, setTime] = useState("");
-  const [address, setAddress] = useState("");
+  const [address1, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
+
   const [totalCount, setTotalCount] = useState("");
   const [mobile, setMobile] = useState("");
   const [name, setName] = useState("");
@@ -51,6 +56,10 @@ const CreatePublish = () => {
     { mode: "hour", unit: ":00", selected: [8, 12, 16] },
     { mode: "minute", fields: 10, unit: "分" },
   ];
+
+  useEffect(() => {
+    console.log(ALLACT_TYPES[actType]);
+  }, []);
 
   const selectTime = () => {
     setShowPicker(true);
@@ -80,12 +89,23 @@ const CreatePublish = () => {
     if (e.detail.errMsg !== "getPhoneNumber:ok") return;
   };
 
+  const chooseAddress = () => {
+    Taro.chooseLocation({
+      latitude: "",
+      longitude: "",
+      success: (e) => {
+        console.log(e);
+        setAddress1(e.address);
+      },
+    });
+  };
+
   const handleCreatActivity = async () => {
     const params = {
       activityType: actType,
       title,
       startTime: time,
-      address,
+      address: address1 + address2,
       totalCount,
       playType: vsTypes[vsIndex].value,
       salesType: perSpends[spendIndex].value,
@@ -97,11 +117,11 @@ const CreatePublish = () => {
     };
 
     console.log(params, "--params");
-    // const res = await createActivity(params);
-    // Taro.navigateTo({
-    //   url: `/pages/actDetail/index?id=${res.data.data}`,
-    // });
-    // console.log(res, "--res");
+    const res = await createActivity(params);
+    Taro.navigateTo({
+      url: `/pages/actDetail/index?id=${res.data.data}`,
+    });
+    console.log(res, "--res");
   };
 
   const Title = ({ text, subTitle }) => {
@@ -115,7 +135,7 @@ const CreatePublish = () => {
   return (
     <View className="createPublish">
       <Image
-        src={ALLGROUPS[actType]?.img || topImg}
+        src={ALLACT_TYPES[actType + 1]?.img || topImg}
         className="createPublish-top"
         mode="aspectFill"
       />
@@ -154,22 +174,33 @@ const CreatePublish = () => {
 
       <View className="createPublish-section">
         <Title text="活动地点" />
-        <View className="createPublish-section__add line flex flex-left-center flex-between-center">
-          <Input
-            type="numer"
-            value={address}
-            onInput={(e) => {
-              setAddress(e.detail.value);
-            }}
-            placeholderClass="placeholderColor"
-            placeholder="请输入活动地点"
-          />
+        <View
+          className="createPublish-section__add line flex flex-left-center flex-between-center"
+          onClick={chooseAddress}
+        >
+          {address1 ? (
+            <Text className="">{address1}</Text>
+          ) : (
+            <Text className="placeholderColor">点击选择活动地点</Text>
+          )}
+          <Image className="arrow" src={arrow} />
         </View>
       </View>
 
       <View className="createPublish-section">
         <Title text="会合地点" />
         <View className="createPublish-section__add flex flex-left-center ">
+          <Input
+            type="numer"
+            value={address2}
+            onInput={(e) => {
+              setAddress2(e.detail.value);
+            }}
+            placeholderClass="placeholderColor"
+            placeholder="请输入汇合地点"
+          />
+        </View>
+        {/* <View className="createPublish-section__add flex flex-left-center ">
           {meetingPlaces.map((item, index) => (
             <Text
               className={
@@ -182,7 +213,7 @@ const CreatePublish = () => {
               {item.name}
             </Text>
           ))}
-        </View>
+        </View> */}
       </View>
 
       <View className="createPublish-section">
@@ -220,7 +251,7 @@ const CreatePublish = () => {
         </View>
       </View> */}
 
-      <View className="createPublish-section">
+      {/* <View className="createPublish-section">
         <Title text="比赛形式" />
         <View className="createPublish-section__add flex flex-left-center ">
           {vsTypes.map((item, index) => (
@@ -236,7 +267,7 @@ const CreatePublish = () => {
             </Text>
           ))}
         </View>
-      </View>
+      </View> */}
 
       <View className="createPublish-section">
         <Title text="人均消费" />

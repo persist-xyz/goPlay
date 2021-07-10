@@ -8,6 +8,7 @@
     &__avatar {
       width: 64rpx;
       height: 64rpx;
+      border-radius: 100%;
       margin-right: 28rpx;
     }
     text {
@@ -28,7 +29,6 @@
       width: 240rpx;
       height: 240rpx;
       border-radius: 16rpx;
-      background-color: red;
       margin-right: 30rpx;
     }
     &__title {

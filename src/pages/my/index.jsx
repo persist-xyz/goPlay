@@ -51,10 +51,11 @@ const My = () => {
     const params = {
       code: loginRes.code,
       name: e.userInfo.nickName,
+      imageUrl: e.userInfo.avatarUrl,
     };
     const res = await authorizeLogin(params);
     setUserInfo(e.userInfo);
-    Taro.setStorageSync("token", res.data.data.token);
+    res.data.data.token && Taro.setStorageSync("token", res.data.data.token);
     Taro.setStorageSync("userInfo", e.userInfo);
   };
 
@@ -68,7 +69,9 @@ const My = () => {
           />
           <Image
             className="my-avatar__sex"
-            src={userInfo.gender === 1 ? male : female}
+            src={
+              userInfo.gender === 1 ? male : userInfo.gender === 2 ? female : ""
+            }
           />
         </View>
 

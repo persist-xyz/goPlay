@@ -252,8 +252,10 @@ const formatNumber = (n) => {
 };
 
 const isValidMobile = (n) => {
-  const withCode = /^\+((?!(86|1|81|65))[0-9]\d{7,}|(1)[0-9]{10}|(81)[0-9]{11}|(65)[0-9]{8})$/;
-  const china = /^(13[0-9]|15[012356789]|17[01235678]|18[0-9]|14[579]|19[189]|166)[0-9]{8}$/;
+  const withCode =
+    /^\+((?!(86|1|81|65))[0-9]\d{7,}|(1)[0-9]{10}|(81)[0-9]{11}|(65)[0-9]{8})$/;
+  const china =
+    /^(13[0-9]|15[012356789]|17[01235678]|18[0-9]|14[579]|19[189]|166)[0-9]{8}$/;
 
   return n ? (withCode.test(n) ? 1 : china.test(n) ? 1 : 0) : 0;
 };
@@ -340,7 +342,7 @@ const showLoading = (title = "加载中") => {
 };
 
 const hideLoading = () => {
-  Taro.hideLoading();
+  // Taro.hideLoading();
 };
 
 const getScene = (scene) => {

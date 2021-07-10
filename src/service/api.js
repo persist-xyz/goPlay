@@ -97,7 +97,7 @@ async function fetch(options) {
         }
       }
 
-      hideLoading();
+      // hideLoading();
       const { data } = res;
 
       if (
@@ -124,7 +124,7 @@ async function fetch(options) {
       }
     })
     .catch((err) => {
-      hideLoading();
+      // hideLoading();
       const defaultMsg = "网络异常";
       showToast(err.message || defaultMsg);
 
@@ -133,16 +133,8 @@ async function fetch(options) {
 }
 
 export function createAction(options) {
-  const {
-    method,
-    url,
-    type,
-    payload,
-    isBase,
-    isApp,
-    fetchOptions,
-    cb,
-  } = options;
+  const { method, url, type, payload, isBase, isApp, fetchOptions, cb } =
+    options;
 
   return fetch({ url, payload, method, isBase, isApp, ...fetchOptions }).then(
     (res) => {

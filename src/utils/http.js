@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro";
 import querystring from "querystring";
 
-const BASEURL = "http://192.168.2.206:9800";
+const BASEURL = "http://192.168.2.206:9800"; // "http://192.168.1.56:9800";
 // const BASEURL = "https://gateway-api.dushu365.com";
 
 const HTTP_STATUS = {
@@ -16,7 +16,7 @@ const customInterceptor = (chain) => {
   const requestParams = chain.requestParams;
   return chain.proceed(requestParams).then((res) => {
     if (loadingCount > 0) {
-      Taro.hideLoading();
+      // Taro.hideLoading();
       loadingCount--;
     }
     if (HTTP_STATUS.SUCCESS.includes(res.data.status)) {
@@ -31,7 +31,7 @@ const customInterceptor = (chain) => {
     }
     let hide = requestParams.data && requestParams.data.hideError;
     try {
-      Taro.hideLoading();
+      // Taro.hideLoading();
     } catch (error) {
       console.log(error);
     }

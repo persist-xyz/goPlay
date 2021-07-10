@@ -1,11 +1,35 @@
 // 活动类型
 export const ALLACT_TYPES = [
-  { name: "美食", value: 1, img: require("@/assets/img/meishi.png") },
-  { name: "游戏", value: 2, img: require("@/assets/img/youxi.png") },
-  { name: "篮球", value: 3, img: require("@/assets/img/lanqiu.png") },
-  { name: "爬山", value: 4, img: require("@/assets/img/huwai.png") },
-  { name: "聚会", value: 5, img: require("@/assets/img/dushu.png") },
-  { name: "逛展", value: 6, img: require("@/assets/img/huwai.png") },
+  {
+    name: "美食",
+    value: 1,
+    img: "https://cdn-ali-images-test.dushu365.com/1625919072263bfa783f4d07133ab5eb5da4a33037t6y1eu",
+  },
+  {
+    name: "游戏",
+    value: 2,
+    img: "https://cdn-ali-images-test.dushu365.com/1625919072358646658e0ddd5f5c865fd4745deb66zcxr1n",
+  },
+  {
+    name: "篮球",
+    value: 3,
+    img: "https://cdn-ali-images-test.dushu365.com/16259190722413b4d7a3a1ee184f17ef68d17b07f461tm6y",
+  },
+  {
+    name: "爬山",
+    value: 4,
+    img: "https://cdn-ali-images-test.dushu365.com/162591907203fe5c15eb2b014cca7da5c760e9ed04psthbc",
+  },
+  {
+    name: "聚会",
+    value: 5,
+    img: "https://cdn-ali-images-test.dushu365.com/1625919072f448946829a844176d23d378ab10d129oh1n86",
+  },
+  {
+    name: "逛展",
+    value: 6,
+    img: "https://cdn-ali-images-test.dushu365.com/16259190727ad8afa851172ec20c8e88fb520d746blc105n",
+  },
   { name: "宠物", value: 7 },
   { name: "探店", value: 8 },
   { name: "跑步", value: 9 },
