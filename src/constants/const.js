@@ -39,7 +39,6 @@ export const ALLACT_TYPES = [
 
 // 圈子
 export const ALLGROUPS = [
-  { name: "所有圈子", value: 0 },
   { name: "美食", value: 1 },
   { name: "逛展", value: 2 },
   { name: "宠物", value: 3 },

@@ -46,7 +46,7 @@ const CreatePublish = () => {
 
   const dateTime = [
     { mode: "day", duration: 30, unit: "日", humanity: true, format: "M月D日" },
-    { mode: "hour", unit: ":00", selected: [8, 12, 16] },
+    { mode: "hour", unit: ":00" },
     { mode: "minute", fields: 10, unit: "分" },
   ];
 
@@ -180,7 +180,7 @@ const CreatePublish = () => {
         </View>
       </View>
 
-      <View className="createPublish-section">
+      {/* <View className="createPublish-section">
         <Title text="会合地点" />
         <View className="createPublish-section__add flex flex-left-center ">
           <Input
@@ -193,21 +193,7 @@ const CreatePublish = () => {
             placeholder="请输入汇合地点"
           />
         </View>
-        {/* <View className="createPublish-section__add flex flex-left-center ">
-          {meetingPlaces.map((item, index) => (
-            <Text
-              className={
-                index === vsIndex ? "active-btn2 btn" : "default-btn2 btn"
-              }
-              onClick={() => {
-                setVsIndex(index);
-              }}
-            >
-              {item.name}
-            </Text>
-          ))}
-        </View> */}
-      </View>
+      </View> */}
 
       <View className="createPublish-section">
         <Title text="活动人数" />
@@ -222,7 +208,7 @@ const CreatePublish = () => {
             placeholderClass="placeholderColor"
             placeholder="点击设置活动人数"
           />
-          <Image className="arrow" src={arrow} />
+          {/* <Image className="arrow" src={arrow} /> */}
         </View>
       </View>
 
