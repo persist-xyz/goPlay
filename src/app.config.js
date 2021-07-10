@@ -5,7 +5,9 @@ export default {
     "pages/publish/index",
     "pages/createPublish/index",
     "pages/myJoinAct/index",
+    "pages/bestCircle/index",
     "pages/myPublishAct/index",
+    "pages/actDetail/index",
     "pages/webview/webview",
   ],
   tabBar: {

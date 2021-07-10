@@ -81,6 +81,10 @@ button {
   display: flex;
   flex-direction: column;
 }
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
 
 .placeholderColor {
   color: #b2b2b2;
@@ -125,4 +129,8 @@ button {
   font-size: 24rpx;
   padding: 14rpx 30rpx;
   border: 1px solid #fa6400;
+}
+
+.vague {
+  filter: blur(10rpx);
 }

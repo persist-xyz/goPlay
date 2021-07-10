@@ -5,11 +5,19 @@ import defaultAvatar from "@/assets/img/default-avatar.png";
 import male from "@/assets/img/male.png";
 import female from "@/assets/img/female.png";
 import arrow from "@/assets/img/right-arrow.png";
+import { authorizeLogin } from "@/api/user";
 
 import "./index.scss";
 
 const My = () => {
   const pageInstance = getCurrentInstance();
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    const _userInfo = Taro.getStorageSync("userInfo") || {};
+    console.log(_userInfo, "222");
+    setUserInfo(_userInfo);
+  }, []);
 
   useDidShow(() => {
     if (
@@ -33,15 +41,38 @@ const My = () => {
     });
   };
 
+  const getUserInfo = async () => {
+    if (userInfo.nickName) return;
+
+    let e = await Taro.getUserProfile({ desc: "获取用户信息", lang: "zh_CN" });
+    if (e.errMsg !== "getUserProfile:ok") return;
+
+    let loginRes = await Taro.login();
+    const params = {
+      code: loginRes.code,
+      name: e.userInfo.nickName,
+    };
+    const res = await authorizeLogin(params);
+    setUserInfo(e.userInfo);
+    Taro.setStorageSync("token", res.data.data.token);
+    Taro.setStorageSync("userInfo", e.userInfo);
+  };
+
   return (
     <View className="my">
       <View className="my-top">
-        <View className="my-avatar">
-          <Image className="my-avatar__img" src={defaultAvatar} />
-          <Image className="my-avatar__sex" src={male} />
+        <View className="my-avatar" onClick={getUserInfo}>
+          <Image
+            className="my-avatar__img"
+            src={userInfo.avatarUrl || defaultAvatar}
+          />
+          <Image
+            className="my-avatar__sex"
+            src={userInfo.gender === 1 ? male : female}
+          />
         </View>
 
-        <Text className="my-name">小仙女本仙</Text>
+        <Text className="my-name">{userInfo.nickName || "登录"}</Text>
       </View>
 
       <View className="my-list border-radius">

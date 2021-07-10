@@ -1,7 +1,8 @@
 import Taro from "@tarojs/taro";
 import querystring from "querystring";
 
-const BASEURL = "https://gateway-api.dushu365.com";
+const BASEURL = "http://192.168.2.206:9800";
+// const BASEURL = "https://gateway-api.dushu365.com";
 
 const HTTP_STATUS = {
   SUCCESS: [1, "0000"],
@@ -10,6 +11,7 @@ const HTTP_STATUS = {
 
 let loadingCount = 0;
 let hasAdd = false;
+
 const customInterceptor = (chain) => {
   const requestParams = chain.requestParams;
   return chain.proceed(requestParams).then((res) => {
@@ -36,12 +38,12 @@ const customInterceptor = (chain) => {
 
     if (!hide) {
       Taro.showToast({
-        title: res.data.message || res.data.msg,
+        title: "22" || res.data.message || res.data.msg,
         icon: "none",
       });
     }
 
-    return Promise.reject(res.data.message || res.data.msg || null);
+    return Promise.reject("11" || res.data.message || res.data.msg || null);
   });
 };
 
@@ -52,16 +54,15 @@ const customInterceptor = (chain) => {
 // interceptors.forEach(interceptorItem => Taro.addInterceptor(interceptorItem))
 
 function baseOptions(params, method = "POST") {
-  !hasAdd && Taro.addInterceptor(customInterceptor);
+  // !hasAdd && Taro.addInterceptor(customInterceptor);
   hasAdd = true;
   let { url, data, header } = params;
-  if (!data.noLoading) {
-    loadingCount++;
-    Taro.showLoading({ title: "正在加载..." });
-  } else {
-    delete data.noLoading;
-  }
-  data.token = data.token || Taro.getStorageSync("token") || "";
+  // if (!data.noLoading) {
+  //   loadingCount++;
+  // } else {
+  //   delete data.noLoading;
+  // }
+  // Taro.showLoading({ title: "正在加载..." });
 
   let contentType = params.contentType || "application/json";
   const option = {
@@ -72,6 +73,7 @@ function baseOptions(params, method = "POST") {
     method: method,
     header: {
       "content-type": contentType,
+      token: data.token || Taro.getStorageSync("token"),
       ...header,
     },
     timeout: 5000,

@@ -34,6 +34,13 @@
     &__add {
       padding: 30rpx 20rpx 20rpx 0;
     }
+
+    .places {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
     .line {
       border-bottom: 1px solid #eaeaea;
     }

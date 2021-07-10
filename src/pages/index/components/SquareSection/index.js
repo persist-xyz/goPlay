@@ -1,30 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
+import Taro from "@tarojs/taro";
 import { View, Swiper, SwiperItem, Image, Text } from "@tarojs/components";
 import FilterDropDown from "@/components/FilterDropDown";
-import SquareCard from "../SquareCard";
+import SquareCard from "@/components/SquareCard";
 import data from "./data"; //筛选菜单数据
-import img from "@/assets/img/index-best.png";
+import { joinActivity } from "@/api/post";
+import banner1 from "@/assets/img/banner1.png";
 import "./index.scss";
 
-const SquareSection = ({}) => {
-  const [tabLists2] = useState([
-    {
-      name: "所有活动",
-    },
-    {
-      name: "圈子活动",
-    },
-  ]);
-
-  const [banners] = useState([
-    {
-      image: img,
-    },
-    {
-      image: img,
-    },
-  ]);
-
+const SquareSection = ({ list }) => {
+  const [tabLists2] = useState(["所有活动", "圈子活动"]);
+  const [banners] = useState([banner1, banner1]);
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
   const [filterData] = useState(data);
   const [defaultSelected] = useState([]);
@@ -32,6 +18,17 @@ const SquareSection = ({}) => {
   //接收菜单结果
   const confirm = (e) => {
     console.log(e);
+  };
+
+  const handleJump = (item) => {
+    Taro.navigateTo({
+      url: `/pages/actDetail/index?id=${item.id}`,
+    });
+  };
+
+  const handleJoinAct = async (item) => {
+    const res = await joinActivity({ postId: item.id });
+    console.log(item, res, "--join");
   };
 
   const IndexTypeTab = () => {
@@ -43,14 +40,14 @@ const SquareSection = ({}) => {
             onClick={() => {
               setCurrentTabIndex(index);
             }}
-            key={item.id}
+            key={index}
           >
             <Text
               className={
                 index === currentTabIndex ? "text-active tab-text" : "tab-text"
               }
             >
-              {item.name}
+              {item}
             </Text>
           </View>
         ))}
@@ -70,7 +67,7 @@ const SquareSection = ({}) => {
           <SwiperItem>
             <Image
               className="squareSection-banner__img"
-              src={item.image}
+              src={item}
               mode="aspectFill"
               // onClick={bannerClick}
             ></Image>
@@ -95,7 +92,14 @@ const SquareSection = ({}) => {
         />
       </View>
 
-      <SquareCard />
+      {list?.map((item, index) => (
+        <SquareCard
+          data={item}
+          key={index}
+          onJoin={handleJoinAct}
+          onClick={handleJump}
+        />
+      ))}
     </View>
   );
 };

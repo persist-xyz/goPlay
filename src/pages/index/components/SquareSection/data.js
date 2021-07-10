@@ -1,3 +1,5 @@
+import { ALLGROUPS, sexs, perSpends } from "@/constants/const";
+
 export default [
   {
     type: "hierarchy",
@@ -11,50 +13,41 @@ export default [
             value: "全部商圈",
           },
           {
-            name: "燕岭/五山",
-            value: "燕岭/五山",
+            name: "1",
+            value: "1",
           },
         ],
       },
       {
-        name: "天河区",
-        value: "天河区",
+        name: "黄浦",
+        value: "黄浦",
         submenu: [
           {
             name: "全部",
             value: "全部",
           },
           {
-            name: "燕岭/五山",
-            value: "燕岭/五山",
+            name: "2",
+            value: "2",
+          },
+        ],
+      },
+      {
+        name: "徐汇",
+        value: "徐汇",
+        submenu: [
+          {
+            name: "全部",
+            value: "全部",
+          },
+          {
+            name: "3",
+            value: "4",
           },
         ],
       },
     ],
   },
-  {
-    // name:'所有活动',
-    type: "hierarchy",
-    submenu: [
-      {
-        name: "所有活动",
-        value: "所有活动",
-      },
-      {
-        name: "离我最近",
-        value: "离我最近",
-      },
-      {
-        name: "人均从高到低",
-        value: "人均从高到低",
-      },
-      {
-        name: "人均从低到高",
-        value: "人均从低到高",
-      },
-    ],
-  },
-
   {
     // name:'最近发布',
     type: "hierarchy",
@@ -64,80 +57,44 @@ export default [
         value: "最近发布",
       },
       {
-        name: "离我最近",
-        value: "离我最近",
+        name: "近两周",
+        value: "近两周",
       },
       {
-        name: "人均从高到低",
-        value: "人均从高到低",
+        name: "一个月内",
+        value: "一个月内",
       },
       {
-        name: "人均从低到高",
-        value: "人均从低到高",
+        name: "三个月内",
+        value: "三个月内",
       },
     ],
   },
   {
-    // name:'所有圈子',
-    type: "radio",
-    submenu: [
-      {
-        name: "所有圈子",
-        submenu: [
-          {
-            name: "111",
-            value: "111",
-          },
-          {
-            name: "222",
-            value: "222",
-          },
-          {
-            name: "333",
-            value: "333",
-          },
-        ],
-      },
-    ],
+    type: "hierarchy",
+    name: "所有圈子",
+    submenu: ALLGROUPS,
   },
   {
-    // name:'筛选',
+    name: "筛选",
     type: "filter",
     submenu: [
       {
-        name: "优惠",
-        submenu: [
-          {
-            name: "满减活动",
-            value: "满减活动",
-          },
-          {
-            name: "打折优惠",
-            value: "打折优惠",
-          },
-          {
-            name: "会员专享",
-            value: "会员专享",
-          },
-        ],
+        name: "活动人数",
+        submenu: sexs,
       },
       {
-        name: "服务",
-        submenu: [
-          {
-            name: "预定",
-            value: "预定",
-          },
-          {
-            name: "点餐",
-            value: "点餐",
-          },
-          {
-            name: "外卖",
-            value: "外卖",
-          },
-        ],
+        name: "人均消费",
+        submenu: perSpends,
       },
+      // {
+      //   name: "性别",
+      //   submenu: sexs,
+      // },
+      // {
+      //   name: "参加情况",
+      //   submenu: sexs,
+      // },
     ],
   },
 ];

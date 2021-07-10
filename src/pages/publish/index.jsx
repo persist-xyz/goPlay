@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "@tarojs/components";
-import { useDidShow, getCurrentInstance } from "@tarojs/taro";
+import Taro, { useDidShow, getCurrentInstance } from "@tarojs/taro";
 import topImg from "@/assets/img/add-top.png";
+import createBtn from "@/assets/img/create-btn.png";
+import { ALLACT_TYPES } from "@/constants/const";
 
 import "./index.scss";
 
 const Publish = () => {
   const pageInstance = getCurrentInstance();
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
-  const [types] = useState([
-    { name: "美食" },
-    { name: "美食" },
-    { name: "美食" },
-    { name: "美食" },
-    { name: "美食" },
-    { name: "美食" },
-  ]);
+  const [AllGroups] = useState(ALLACT_TYPES);
 
   useDidShow(() => {
     if (
@@ -32,7 +27,7 @@ const Publish = () => {
     <View className="publish">
       <Image src={topImg} className="publish-top" />
       <View className="publish-types flex-between-center f-w">
-        {types.map((item, index) => (
+        {AllGroups.map((item, index) => (
           <Text
             className={index === currentTabIndex ? "active-btn" : "default-btn"}
             onClick={() => {
@@ -42,6 +37,17 @@ const Publish = () => {
             {item.name}
           </Text>
         ))}
+      </View>
+
+      <View
+        className="flex-center-center"
+        onClick={() => {
+          Taro.navigateTo({
+            url: `/pages/createPublish/index?type=${AllGroups[currentTabIndex].value}`,
+          });
+        }}
+      >
+        <Image src={createBtn} className="publish-btn" />
       </View>
     </View>
   );

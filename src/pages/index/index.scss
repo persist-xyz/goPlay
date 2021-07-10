@@ -3,7 +3,27 @@
   height: calc(100% - 160rpx);
   background-color: #f7f8fb;
 
-  .index-header .tab-list {
+  .index-header {
+    &__block {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: absolute;
+      left: 20rpx;
+      top: 20rpx;
+
+      image {
+        width: 32rpx;
+        height: 36rpx;
+        margin-right: 10rpx;
+      }
+      text {
+        font-size: 32rpx;
+        color: #fa6400;
+      }
+    }
+  }
+  .tab-list {
     background-color: #fff;
     .list-item {
       line-height: 80px;

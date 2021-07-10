@@ -436,6 +436,7 @@ export default class FilterDropDown extends Component {
   //菜单开关
   togglePage = (index) => {
     console.log(`fyq${index}`);
+
     if (index == this.state.showPage) {
       this.hidePageLayer(true);
       this.hideMask();
