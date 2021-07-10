@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: "发布",
+  navigationBarTitleText: "活动详情",
 };

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "@tarojs/components";
 import Taro, { useRouter } from "@tarojs/taro";
 import dayjs from "dayjs";
-import topImg from "@/assets/img/index-best.png";
 import defaultAvatar from "@/assets/img/default-avatar.png";
 import mobile from "@/assets/img/mobile.png";
 import didian from "@/assets/img/didian.png";
@@ -10,8 +9,10 @@ import isfull from "@/assets/img/isfull.png";
 import out from "@/assets/img/out.png";
 import edit from "@/assets/img/edit.png";
 import join from "@/assets/img/join.png";
-import { ALLGROUPS, vsTypes, perSpends } from "@/constants/const";
+import { ALLGROUPS, ALLACT_TYPES, vsTypes, perSpends } from "@/constants/const";
 import { getActivityInfo } from "@/api/post";
+const topImg =
+  "https://cdn-ali-images-test.dushu365.com/16259190727ad8afa851172ec20c8e88fb520d746blc105n";
 
 import "./index.scss";
 
@@ -29,14 +30,18 @@ const ActDetail = () => {
 
   const takePhone = () => {
     Taro.makePhoneCall({
-      phoneNumber: "1340000",
+      phoneNumber: "15212036751",
     });
   };
 
   return (
     <View className="actDetail">
       <View className="actDetail-top">
-        <Image src={topImg} className="actDetail-top__bg" />
+        <Image
+          src={ALLACT_TYPES[data?.activityType + 1]?.img || topImg}
+          className="actDetail-top__bg"
+          mode="aspectFill"
+        />
         <View className="actDetail-top__user">
           <Image src={defaultAvatar} />
           <Text>{data?.user?.name} 发起</Text>

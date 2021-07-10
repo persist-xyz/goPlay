@@ -1,30 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "@tarojs/components";
-import SquareCard from "@/components/SquareCard";
-import { myPublishAct } from "@/api/user";
+import Card from "./components/Card";
 
 import "./index.scss";
 
-const MyPublishAct = () => {
-  const [list, setList] = useState([]);
-
-  useEffect(async () => {
-    const res = await myPublishAct();
-    console.log(res);
-    setList(res?.data?.data);
-  }, []);
-
-  const handleJoinAct = (item) => {
-    console.log(item, "--join");
-  };
-
+const MyJoinAct = () => {
   return (
-    <View className="myPublishAct">
-      {list?.map((item, index) => (
-        <SquareCard data={item} key={index} onClick={handleJoinAct} />
-      ))}
+    <View className="myJoinAct">
+      <Card />
     </View>
   );
 };
 
-export default MyPublishAct;
+export default MyJoinAct;

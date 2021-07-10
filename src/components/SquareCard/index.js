@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { View, Text, Image } from "@tarojs/components";
+import { View, Text, Image, Button } from "@tarojs/components";
 import dayjs from "dayjs";
 import defaultAvatar from "@/assets/img/default-avatar.png";
 import skeletonimg from "@/assets/img/act-cover.png";
@@ -8,10 +8,18 @@ import joinBtn from "@/assets/img/btn-join.png";
 import didian from "@/assets/img/didian.png";
 import shijian from "@/assets/img/shijian.png";
 import price from "@/assets/img/price.png";
-import { ALLGROUPS, perSpends } from "@/constants/const";
+import add from "@/assets/img/add.png";
+import { ALLGROUPS, ALLACT_TYPES, perSpends } from "@/constants/const";
 import "./index.scss";
 
+const topImg =
+  "https://cdn-ali-images-test.dushu365.com/16259190727ad8afa851172ec20c8e88fb520d746blc105n";
+
 const SquareCard = ({ data, onClick, onJoin }) => {
+  console.log(data);
+
+  const handleShare = () => {};
+
   return (
     <View class="squareCard border-radius">
       <View className="squareCard-top flex flex-left-center">
@@ -28,7 +36,10 @@ const SquareCard = ({ data, onClick, onJoin }) => {
         className="squareCard-center flex-left-center"
         onClick={() => onClick(data)}
       >
-        <Image className="squareCard-center__cover" src={skeletonimg}></Image>
+        <Image
+          className="squareCard-center__cover"
+          src={ALLACT_TYPES[data?.activityType + 1]?.img || topImg}
+        ></Image>
 
         <View className="flex-column card-right">
           <View>
@@ -93,11 +104,21 @@ const SquareCard = ({ data, onClick, onJoin }) => {
                 mode="aspectFill"
               />
             ))}
+            {data.count < data.totalCount && (
+              <Button openType="share" className="share-btn">
+                <Image
+                  className="squareCard-bottom__head"
+                  src={add}
+                  mode="aspectFill"
+                  onClick={handleShare}
+                />
+              </Button>
+            )}
           </View>
         </View>
       </View>
 
-      {!data.joinGroupFlag && (
+      {(!data.joinGroupFlag || data.myFlag) && (
         <Image
           src={joinBtn}
           className="squareCard-btn"

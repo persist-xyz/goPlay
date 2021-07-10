@@ -6,14 +6,7 @@ import arrow from "@/assets/img/right-arrow.png";
 import createBtn from "@/assets/img/create-btn.png";
 import FilterDropDown from "@/components/FilterDropDown";
 import Picker from "@/components/Picker";
-import {
-  ALLGROUPS,
-  ALLACT_TYPES,
-  meetingPlaces,
-  vsTypes,
-  sexs,
-  perSpends,
-} from "@/constants/const";
+import { ALLGROUPS, ALLACT_TYPES, vsTypes, perSpends } from "@/constants/const";
 import { createActivity } from "@/api/post";
 
 import "./index.scss";
@@ -109,7 +102,7 @@ const CreatePublish = () => {
       totalCount,
       playType: vsTypes[vsIndex].value,
       salesType: perSpends[spendIndex].value,
-      groupType: publishPlaceIndex === 100 ? "" : publishPlaceIndex,
+      groupType: publishPlaceIndex === 100 ? "" : publishPlaceIndex + 1,
       mobile,
       name,
       wechatId: wxCode,
@@ -118,7 +111,7 @@ const CreatePublish = () => {
 
     console.log(params, "--params");
     const res = await createActivity(params);
-    Taro.navigateTo({
+    Taro.redirectTo({
       url: `/pages/actDetail/index?id=${res.data.data}`,
     });
     console.log(res, "--res");

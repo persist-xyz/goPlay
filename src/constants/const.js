@@ -1,3 +1,5 @@
+import Taro from "@tarojs/taro";
+
 // 活动类型
 export const ALLACT_TYPES = [
   {
@@ -167,3 +169,14 @@ export const circleFilter = [
     ],
   },
 ];
+
+// 默认分享文案
+export const defaultShare = () => {
+  let userInfo = Taro.getStorageSync("userInfo") || {};
+  return {
+    title: `您的好友${userInfo.nickName}邀请您来参加活动，快来看看吧～`,
+    imageUrl:
+      "https://cdn-ali-images-test.dushu365.com/1625919072f448946829a844176d23d378ab10d129oh1n86",
+    path: `/pages/index/index`,
+  };
+};

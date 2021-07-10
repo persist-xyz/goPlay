@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ScrollView, Image } from "@tarojs/components";
-import Taro, { useDidShow, getCurrentInstance } from "@tarojs/taro";
+import Taro, {
+  useDidShow,
+  getCurrentInstance,
+  useShareAppMessage,
+} from "@tarojs/taro";
 import SquareSection from "./components/SquareSection";
 import CircleSection from "./components/CircleSection";
 import didian from "@/assets/img/didian.png";
 import "./index.scss";
 import { getALLPost } from "@/api/post";
 import { getAllGroups } from "@/api/groups";
+import { defaultShare } from "@/constants/const";
 
 const Index = () => {
   const [tabLists] = useState(["广场", "圈子"]);
@@ -32,6 +37,8 @@ const Index = () => {
       });
     }
   });
+
+  useShareAppMessage(defaultShare);
 
   const getAllActivity = async () => {
     const res = await getALLPost();
