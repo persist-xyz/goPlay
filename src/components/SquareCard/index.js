@@ -58,7 +58,7 @@ const SquareCard = ({ data, onClick, onJoin }) => {
                 src={shijian}
                 mode="aspectFill"
               ></Image>
-              <Text className={data.joinGroupFlag ? "" : "vague"}>
+              <Text /* className={data.joinGroupFlag ? "" : "vague"} */>
                 {dayjs(data?.startTime).format("YYYY-MM-DD HH:mm")}
               </Text>
             </View>
@@ -68,7 +68,7 @@ const SquareCard = ({ data, onClick, onJoin }) => {
                 src={price}
                 mode="aspectFill"
               ></Image>
-              <Text className={data.joinGroupFlag ? "" : "vague"}>
+              <Text /* className={data.joinGroupFlag ? "" : "vague"} */>
                 {perSpends?.[data.salesType]?.name}
               </Text>
             </View>
@@ -78,7 +78,7 @@ const SquareCard = ({ data, onClick, onJoin }) => {
                 src={didian}
                 mode="aspectFill"
               ></Image>
-              <Text className={data.joinGroupFlag ? "" : "vague"}>
+              <Text /* className={data.joinGroupFlag ? "" : "vague"} */>
                 {data.address}
               </Text>
             </View>

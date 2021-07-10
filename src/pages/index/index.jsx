@@ -24,7 +24,6 @@ const Index = () => {
   useEffect(async () => {
     const _cityInfo = Taro.getStorageSync("cityInfo") || {};
     setCityInfo(_cityInfo);
-    getAllActivity();
   }, []);
 
   useDidShow(() => {
@@ -35,6 +34,12 @@ const Index = () => {
       pageInstance.page.getTabBar().setData({
         tabIndex: 0,
       });
+    }
+
+    if (currentTabIndex === 0) {
+      getAllActivity();
+    } else {
+      getAllCircle();
     }
   });
 
