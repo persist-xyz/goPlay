@@ -38,15 +38,19 @@ const SquareCard = ({ data, onClick, onJoin }) => {
       >
         <Image
           className="squareCard-center__cover"
-          src={ALLACT_TYPES[data?.activityType + 1]?.img || topImg}
+          src={
+            ALLACT_TYPES.filter(
+              (item) => item.value === data?.activityType
+            )?.[0]?.img || topImg
+          }
         ></Image>
 
         <View className="flex-column card-right">
           <View>
             <View className="squareCard-center__title">{data.title}</View>
-            {ALLGROUPS?.[data.groupType]?.name && (
+            {ALLGROUPS?.[data.groupType - 1]?.name && (
               <Text className="squareCard-center__yellowbg">
-                {ALLGROUPS?.[data.groupType]?.name}
+                {ALLGROUPS?.[data.groupType - 1]?.name}
               </Text>
             )}
           </View>
@@ -118,7 +122,7 @@ const SquareCard = ({ data, onClick, onJoin }) => {
         </View>
       </View>
 
-      {(data.joinGroupFlag || data.myFlag) && (
+      {!data.myFlag && (
         <Image
           src={joinBtn}
           className="squareCard-btn"

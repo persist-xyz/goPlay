@@ -1,4 +1,4 @@
-.card {
+.squareCard {
   position: relative;
   background-color: #fff;
   margin: 20rpx;
@@ -29,7 +29,6 @@
       width: 240rpx;
       height: 240rpx;
       border-radius: 16rpx;
-      background-color: red;
       margin-right: 30rpx;
     }
     &__title {
@@ -37,7 +36,11 @@
       font-size: 32rpx;
       margin-bottom: 10rpx;
     }
-
+    .card-right {
+      flex: 1;
+      height: 240rpx;
+      justify-content: space-between;
+    }
     &__yellowbg {
       color: #fe6513;
       font-size: 18rpx;
@@ -70,15 +73,21 @@
       color: #4c4948;
       font-size: 20rpx;
       margin-top: 20rpx;
-      margin-bottom: 10rpx;
     }
 
     &__headers {
       image {
         width: 68rpx;
         height: 68rpx;
+        border-radius: 100%;
         margin-right: 24rpx;
       }
+    }
+
+    .share-btn {
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
     }
   }
 

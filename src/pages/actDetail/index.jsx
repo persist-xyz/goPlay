@@ -38,7 +38,11 @@ const ActDetail = () => {
     <View className="actDetail">
       <View className="actDetail-top">
         <Image
-          src={ALLACT_TYPES[data?.activityType - 1]?.img || topImg}
+          src={
+            ALLACT_TYPES.filter(
+              (item) => item.value === data?.activityType
+            )?.[0]?.img || topImg
+          }
           className="actDetail-top__bg"
           mode="aspectFill"
         />
@@ -76,10 +80,10 @@ const ActDetail = () => {
           <Text className="lable">汇合地点：</Text>
           <Text className="val">1</Text>
         </View> */}
-        <View className="actDetail-info__item flex-row flex-left-start ">
+        {/* <View className="actDetail-info__item flex-row flex-left-start ">
           <Text className="lable">比赛形式：</Text>
           <Text className="val"> {vsTypes?.[data.playType]?.name} </Text>
-        </View>
+        </View> */}
         {/* <View className="actDetail-info__item flex-row flex-left-start ">
           <Text className="lable">性别限制：</Text>
           <Text className="val">{sexs?.[data.playType]?.name}</Text>
