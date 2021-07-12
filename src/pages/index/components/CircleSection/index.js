@@ -9,7 +9,7 @@ import bestImg from "@/assets/img/index-best.png";
 import createImg from "@/assets/img/index-create.png";
 import "./index.scss";
 
-const CircleSection = ({ list }) => {
+const CircleSection = ({ list, onReload }) => {
   const [filterData] = useState(circleFilter);
   const [defaultSelected] = useState([]);
 
@@ -23,9 +23,11 @@ const CircleSection = ({ list }) => {
 
     if (res.data?.data) {
       Taro.showToast({
-        title: "加入成功",
+        title: "圈子加入成功～",
         icon: "none",
       });
+
+      onReload();
     }
   };
 

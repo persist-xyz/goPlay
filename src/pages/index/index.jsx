@@ -52,11 +52,11 @@ const Index = () => {
   };
 
   const handleReload = () => {
-    Taro.showToast({
-      title: "已加入",
-      icon: "none",
-    });
-    getAllActivity();
+    if (currentTabIndex === 0) {
+      getAllActivity();
+    } else {
+      getAllCircle();
+    }
   };
 
   const getAllCircle = async () => {
@@ -111,7 +111,7 @@ const Index = () => {
       {currentTabIndex === 0 ? (
         <SquareSection list={actList} onReload={handleReload} />
       ) : (
-        <CircleSection list={circleList} />
+        <CircleSection list={circleList} onReload={handleReload} />
       )}
     </ScrollView>
   );

@@ -62,7 +62,7 @@ const CircleCard = ({ data, onClick }) => {
           mode="aspectFill"
         ></Image>
 
-        {data.joinGroupFlag && (
+        {!data.joinGroupFlag && (
           <View className="flex-between-end" onClick={() => onClick(data)}>
             <Image src={joinBtn} className="circleCard-bottom__card-btn" />
           </View>

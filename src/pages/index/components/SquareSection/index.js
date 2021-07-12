@@ -29,6 +29,10 @@ const SquareSection = ({ list, onReload }) => {
   const handleJoinAct = async (item) => {
     const res = await joinActivity({ postId: item.id });
     console.log(item, res, "--join");
+    Taro.showToast({
+      title: "活动加入成功～",
+      icon: "none",
+    });
     onReload();
   };
 
