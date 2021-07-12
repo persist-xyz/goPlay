@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro";
 import querystring from "querystring";
 
-const BASEURL = "http://192.168.2.206:9800"; // "http://192.168.1.56:9800";
+const BASEURL = "http://192.168.1.56:9800"; // "http://192.168.1.56:9800";
 // const BASEURL = "https://gateway-api.dushu365.com";
 
 const HTTP_STATUS = {

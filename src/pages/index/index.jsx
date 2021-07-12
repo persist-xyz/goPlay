@@ -62,7 +62,7 @@ const Index = () => {
   const getAllCircle = async () => {
     const res = await getAllGroups({
       pageNum: 1,
-      pageSize: 10,
+      pageSize: 20,
     });
     console.log(res.data, "--index-list--22");
     setCircleList(res.data.data || []);

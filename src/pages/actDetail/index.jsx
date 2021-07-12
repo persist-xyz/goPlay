@@ -30,7 +30,7 @@ const ActDetail = () => {
 
   const takePhone = () => {
     Taro.makePhoneCall({
-      phoneNumber: "15212036751",
+      phoneNumber: data?.mobile || "15212036751",
     });
   };
 
@@ -47,7 +47,7 @@ const ActDetail = () => {
           mode="aspectFill"
         />
         <View className="actDetail-top__user">
-          <Image src={defaultAvatar} />
+          <Image src={data?.user?.imageUrl || defaultAvatar} />
           <Text>{data?.user?.name} 发起</Text>
         </View>
       </View>
@@ -55,7 +55,12 @@ const ActDetail = () => {
       <View className="actDetail-base">
         <View className="actDetail-base__title">{data.title}</View>
         <Text className="actDetail-base__yellowbg">
-          {ALLGROUPS?.[data.type]?.name}
+          {/* {ALLGROUPS?.[data.type]?.name} */}
+          {
+            ALLACT_TYPES.filter(
+              (item) => item.value === data?.activityType
+            )?.[0]?.name
+          }
         </Text>
         <View
           className="actDetail-base__address flex-row flex-between-center"

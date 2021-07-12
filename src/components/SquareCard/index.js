@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import Taro from "@tarojs/taro";
 import { View, Text, Image, Button } from "@tarojs/components";
 import dayjs from "dayjs";
 import defaultAvatar from "@/assets/img/default-avatar.png";
-import skeletonimg from "@/assets/img/act-cover.png";
 import line from "@/assets/img/line.png";
 import joinBtn from "@/assets/img/btn-join.png";
 import didian from "@/assets/img/didian.png";
 import shijian from "@/assets/img/shijian.png";
+import isfull from "@/assets/img/isfull.png";
 import price from "@/assets/img/price.png";
 import add from "@/assets/img/add.png";
 import { ALLGROUPS, ALLACT_TYPES, perSpends } from "@/constants/const";
@@ -124,9 +125,19 @@ const SquareCard = ({ data, onClick, onJoin }) => {
 
       {!data.myFlag && (
         <Image
-          src={joinBtn}
+          src={data.count < data.totalCount ? joinBtn : isfull}
+          mode="aspectFill"
           className="squareCard-btn"
-          onClick={() => onJoin(data)}
+          onClick={() => {
+            if (data.count < data.totalCount) {
+              onJoin(data);
+            } else {
+              Taro.showToast({
+                title: "加入人数已满～",
+                icon: "none",
+              });
+            }
+          }}
         />
       )}
     </View>
